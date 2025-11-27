@@ -1,0 +1,18 @@
+{
+  "full_name": "Philip Omoigui",
+  "name": "Philo",
+  "current_role": "Software Engineer",
+  "location": "Los Angeles, CA",
+  "email": "philipomoigui@gmail.com",
+  "linkedin": "linkedin.com/in/philipomoigui",
+  "specialties": ["Software Engineering", "AI", "Cloud Computing"],
+  "years_experience": 8,
+  "education": [
+    {
+      "degree": "Bachelor of Science in Accounting",
+      "institution": "Obafemi Awolowo University, Nigeria",
+      "year": "2020"
+    }
+  ]
+}
+
