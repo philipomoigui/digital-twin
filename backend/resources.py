@@ -3,7 +3,7 @@ import json
 
 # Read LinkedIn PDF
 try:
-    reader = PdfReader("./data/linkedin.pdf")
+    reader = PdfReader("./data/linkedin-philip.pdf")
     linkedin = ""
     for page in reader.pages:
         text = page.extract_text()
