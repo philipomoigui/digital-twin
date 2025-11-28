@@ -1,5 +1,11 @@
 @import 'tailwindcss';
 
+/* Ensure SVG icons are visible */
+svg {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 /* Smooth scrolling animation keyframe */
 @keyframes bounce {
   0%,
