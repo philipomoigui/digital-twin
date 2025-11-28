@@ -24,6 +24,12 @@ terraform init -input=false \
 
 if ! terraform workspace list | grep -q "$ENVIRONMENT"; then
   terraform workspace new "$ENVIRONMENT"
+  # Import one-time setup resources into new workspace
+  echo "📥 Importing one-time setup resources into $ENVIRONMENT workspace..."
+  terraform import aws_s3_bucket.terraform_state twin-terraform-state-${AWS_ACCOUNT_ID} 2>/dev/null || echo "S3 bucket already in state or import failed"
+  terraform import aws_dynamodb_table.terraform_locks twin-terraform-locks 2>/dev/null || echo "DynamoDB table already in state or import failed"
+  terraform import aws_iam_openid_connect_provider.github arn:aws:iam::${AWS_ACCOUNT_ID}:oidc-provider/token.actions.githubusercontent.com 2>/dev/null || echo "OIDC provider already in state or import failed"
+  terraform import aws_iam_role.github_actions github-actions-twin-deploy 2>/dev/null || echo "IAM role already in state or import failed"
 else
   terraform workspace select "$ENVIRONMENT"
 fi
